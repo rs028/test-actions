@@ -1,7 +1,14 @@
 name: Example workflow
-on: workflow_dispatch
+on:
+
+  pull_request:
+    branches: [ main ]
+
+    workflow_dispatch
+
 permissions:
   contents: write
+
 jobs:
   example:
     runs-on: ubuntu-latest

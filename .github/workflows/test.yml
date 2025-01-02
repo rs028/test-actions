@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref }}
       - shell: bash
         run: |
           date > 1.txt
@@ -23,4 +23,4 @@ jobs:
           git config user.email github-actions@github.com
           git add 1.txt
           git commit -m updated
-          git push origin HEAD:${{ github.ref }}
+          git push origin HEAD:${{ github.head_ref }}

@@ -15,6 +15,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+
+      - name: Check Token Permissions
+        run: |
+          echo "Token Permissions: $(curl -sSL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }} | jq .permissions)"
+
       - shell: bash
         run: |
           date > 1.txt

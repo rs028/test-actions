@@ -22,6 +22,9 @@ jobs:
           https://api.github.com/repos/${{ github.repository }} | jq .permissions)"
 
       - shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         run: |
           date > 1.txt
           git config user.name github-actions
